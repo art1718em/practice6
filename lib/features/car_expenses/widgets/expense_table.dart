@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../models/expense_model.dart';
 import 'expense_row.dart';
 
@@ -15,10 +16,21 @@ class ExpenseTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (expenses.isEmpty) {
-      return const Center(
-        child: Text(
-          'Расходов пока нет',
-          style: TextStyle(fontSize: 18, color: Colors.grey),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CachedNetworkImage(
+              imageUrl: "https://cdn4.iconfinder.com/data/icons/emoticons-outline/512/9-1024.png",
+              width: 100,
+              height: 100,
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Расходов пока нет',
+              style: TextStyle(fontSize: 18, color: Colors.grey),
+            ),
+          ],
         ),
       );
     }
