@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class AddExpenseScreen extends StatefulWidget {
   final Function(String title, double amount) onSave;
@@ -38,11 +39,23 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: widget.onCancel,
         ),
-        title: const Text('Добавить расход'),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CachedNetworkImage(
+              imageUrl: "https://cdn-icons-png.flaticon.com/512/189/189715.png",
+              width: 30,
+              height: 30,
+            ),
+            const SizedBox(width: 8),
+            const Text('Добавить расход'),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),
