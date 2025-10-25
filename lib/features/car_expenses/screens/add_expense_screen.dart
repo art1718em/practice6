@@ -88,7 +88,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ),
               TextFormField(
                 controller: _amountController,
-                decoration: const InputDecoration(labelText: 'Сумма'),
+                decoration: InputDecoration(
+                  labelText: 'Сумма',
+                  prefixIcon: CachedNetworkImage(
+                    imageUrl: "https://cdn-icons-png.flaticon.com/512/3135/3135706.png",
+                    width: 24,
+                    height: 24,
+                  ),
+                ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
