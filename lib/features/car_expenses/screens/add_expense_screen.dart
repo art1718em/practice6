@@ -71,7 +71,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
             children: [
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(labelText: 'Название'),
+                decoration: InputDecoration(
+                  labelText: 'Название',
+                  prefixIcon: CachedNetworkImage(
+                    imageUrl: "https://avatars.mds.yandex.net/i?id=b9fc9d04689ecc346cf000d5c217eb36_l-5303358-images-thumbs&n=13",
+                    width: 24,
+                    height: 24,
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Пожалуйста, введите название';
